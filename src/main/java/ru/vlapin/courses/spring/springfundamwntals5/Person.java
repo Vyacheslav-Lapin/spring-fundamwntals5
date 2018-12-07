@@ -1,31 +1,19 @@
 package ru.vlapin.courses.spring.springfundamwntals5;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Singular;
-import lombok.experimental.FieldDefaults;
+public interface Person {
+  Long getId();
 
-import java.util.List;
+  String getName();
 
-import static lombok.AccessLevel.PRIVATE;
+  Country getCountry();
 
-@Data
-@Builder
-@AllArgsConstructor
-@FieldDefaults(level = PRIVATE)
-class Person {
-	@Builder.Default
-	Long id = 1L;
+  int getAge();
 
-	String name;
+  double getHeight();
 
-	Country country;
+  boolean isProgrammer();
 
-	int age;
-	double height;
-	boolean isProgrammer;
+  boolean isBroke();
 
-	@Singular
-  List<String> contacts;
+  java.util.List<String> getContacts();
 }

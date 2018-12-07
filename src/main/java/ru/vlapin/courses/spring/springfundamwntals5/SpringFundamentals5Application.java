@@ -32,7 +32,7 @@ public class SpringFundamentals5Application {
 
   @Bean
   Person vasyaPupkin(Country belarus) {
-    return Person.builder()
+    return UsualPerson.builder()
         .id(2L)
         .name("Вася Пупкин")
         .age(15)

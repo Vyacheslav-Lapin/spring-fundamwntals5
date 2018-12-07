@@ -27,7 +27,7 @@ class SpringFundamentals5ApplicationTest { //for ru.vlapin.courses.spring.spring
 
   @Test
   @SneakyThrows
-  @DisplayName("Person injects correctly")
+  @DisplayName("UsualPerson injects correctly")
   void testName() {
     // given
     assertThat(vasyaPupkin.getName(), is("Вася Пупкин"));

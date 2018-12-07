@@ -21,7 +21,7 @@
         c:name="Ukraine"
         c:groupName="BOR"/>
 
-  <bean id="ivanIvanov" class="ru.vlapin.courses.spring.springfundamwntals5.Person"
+  <bean id="ivanIvanov" class="ru.vlapin.courses.spring.springfundamwntals5.UsualPerson"
         c:id="1"
         c:name="Ivan Ivanov"
         c:age="17"
