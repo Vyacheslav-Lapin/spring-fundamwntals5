@@ -1,10 +1,7 @@
 package ru.vlapin.courses.spring.springfundamwntals5;
 
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,23 +13,29 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-//@ContextConfiguration(classes = JavaConfig.class)
-//@WithMockUser(authorities="ADMIN")
-//@AutoConfigureMockMvc
 @SpringBootTest
+@FieldDefaults(level = PRIVATE)
 @ExtendWith(SpringExtension.class)
-@FieldDefaults(level = PRIVATE, makeFinal = true)
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+//@AllArgsConstructor(onConstructor = @__(@Autowired))
 class SpringFundamentals5ApplicationTest { //for ru.vlapin.courses.spring.springfundamwntals5.SpringFundamentals5Application
 
-  Person person;
+  @Autowired
+  Person vasyaPupkin;
+
+  @Autowired
+  Person ivanIvanov;
 
   @Test
   @SneakyThrows
   @DisplayName("Person injects correctly")
   void testName() {
     // given
-    assertThat(person.getName(), is("Вася Пупкин"));
+    assertThat(vasyaPupkin.getName(), is("Вася Пупкин"));
+    assertThat(ivanIvanov.getName(), is("Ivan Ivanov"));
+
+    System.out.println("vasyaPupkin = " + vasyaPupkin);
+    System.out.println("ivanIvanov = " + ivanIvanov);
+
     // when
 
     // then
