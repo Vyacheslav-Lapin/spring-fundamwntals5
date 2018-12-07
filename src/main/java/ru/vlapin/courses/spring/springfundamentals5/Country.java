@@ -1,13 +1,10 @@
-package ru.vlapin.courses.spring.springfundamwntals5;
+package ru.vlapin.courses.spring.springfundamentals5;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import static lombok.AccessLevel.PRIVATE;
 

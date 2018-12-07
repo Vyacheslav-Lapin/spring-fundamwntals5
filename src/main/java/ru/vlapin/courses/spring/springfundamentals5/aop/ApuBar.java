@@ -1,16 +1,23 @@
-package ru.vlapin.courses.spring.springfundamwntals5.aop;
+package ru.vlapin.courses.spring.springfundamentals5.aop;
 
 import lombok.experimental.FieldDefaults;
 import org.jetbrains.annotations.NotNull;
-import ru.vlapin.courses.spring.springfundamwntals5.Person;
+import org.springframework.stereotype.Component;
+import ru.vlapin.courses.spring.springfundamentals5.Person;
 
 import static lombok.AccessLevel.PRIVATE;
 
+@Component
 @FieldDefaults(level = PRIVATE)
-public final class ApuBar implements Bar {
+public class ApuBar implements Bar {
 
+  @Polite
   @NotNull
+  @Congrats
   @Override
+  @BrokeProof
+  @GoodByeble
+  @FeedBackNeeded
   public Squishee sellSquishee(@NotNull Person person) {
     if (person.isBroke())
       throw new CustomerBrokenException();

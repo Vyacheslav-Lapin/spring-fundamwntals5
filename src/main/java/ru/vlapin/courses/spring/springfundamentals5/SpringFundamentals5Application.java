@@ -1,4 +1,4 @@
-package ru.vlapin.courses.spring.springfundamwntals5;
+package ru.vlapin.courses.spring.springfundamentals5;
 
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -35,7 +35,7 @@ public class SpringFundamentals5Application {
     return UsualPerson.builder()
         .id(2L)
         .name("Вася Пупкин")
-        .age(15)
+        .age(17)
         .contact("222-33-22")
         .contact("kljhdg@sdfg.ru")
         .height(1.78)

@@ -1,4 +1,4 @@
-package ru.vlapin.courses.spring.springfundamwntals5;
+package ru.vlapin.courses.spring.springfundamentals5;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
-@Builder
+@Builder()
 @AllArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class UsualPerson implements Person {
@@ -29,7 +29,7 @@ public class UsualPerson implements Person {
 	boolean isProgrammer;
 
 	@Default
-	boolean isBroke;
+	boolean isBroke = false;
 
 	@Singular
   List<String> contacts;

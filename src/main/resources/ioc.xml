@@ -3,31 +3,35 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util.xsd">
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
   <!--<bean id="name" class="java.lang.String" c:value="Russia"/>-->
 
-  <bean id="russia" class="ru.vlapin.courses.spring.springfundamwntals5.Country"
+  <bean id="russia" class="ru.vlapin.courses.spring.springfundamentals5.Country"
         c:id="1"
         c:name="Russia"
         c:groupName="SWX"/>
 
-  <bean id="ukraine" class="ru.vlapin.courses.spring.springfundamwntals5.Country"
+  <bean id="ukraine" class="ru.vlapin.courses.spring.springfundamentals5.Country"
         c:id="2"
         c:name="Ukraine"
         c:groupName="BOR"/>
 
-  <bean id="ivanIvanov" class="ru.vlapin.courses.spring.springfundamwntals5.UsualPerson"
+  <bean id="ivanIvanov" class="ru.vlapin.courses.spring.springfundamentals5.UsualPerson"
         c:id="1"
         c:name="Ivan Ivanov"
-        c:age="17"
+        c:age="15"
         c:contacts-ref="contacts"
         c:country-ref="belarus"
         c:height="1.78"
+        c:isBroke="true"
         c:isProgrammer="true"/>
 
   <util:list id="contacts">

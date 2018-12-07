@@ -1,4 +1,4 @@
-package ru.vlapin.courses.spring.springfundamwntals5.aop;
+package ru.vlapin.courses.spring.springfundamentals5.aop;
 
 import lombok.experimental.FieldDefaults;
 

@@ -1,4 +1,4 @@
-package ru.vlapin.courses.spring.springfundamwntals5;
+package ru.vlapin.courses.spring.springfundamentals5;
 
 public interface Person {
   Long getId();
