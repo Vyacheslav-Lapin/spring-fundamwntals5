@@ -41,4 +41,8 @@
     <jdbc:script location="dml.sql"/>
   </jdbc:embedded-database>
 
+  <!--<jdbc:initialize-database>-->
+    <!--<jdbc:script/>-->
+  <!--</jdbc:initialize-database>-->
+
 </beans>

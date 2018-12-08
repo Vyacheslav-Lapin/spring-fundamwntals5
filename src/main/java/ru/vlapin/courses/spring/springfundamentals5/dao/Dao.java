@@ -11,7 +11,7 @@ public interface Dao<ID extends Number, T extends Identifiable<ID>> {
   default Optional<T> getOne(ID id) {
     return findAll().stream()
         .filter(entity -> entity.getId().equals(id))
-        .findFirst();
+        .findAny();
   }
 
   List<T> findAll();

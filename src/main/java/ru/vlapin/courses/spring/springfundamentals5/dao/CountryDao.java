@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import ru.vlapin.courses.spring.springfundamentals5.Country;
 
 import javax.sql.DataSource;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +51,7 @@ public final class CountryDao extends NamedParameterJdbcDaoSupport implements Da
         getNamedParameterJdbcTemplate()
             .queryForObject(
                 GET_SQL,
-                mapOf(Country.Fields.id, id),
+                Collections.singletonMap(Country.Fields.id, id),
                 ROW_MAPPER));
   }
 
@@ -66,7 +67,7 @@ public final class CountryDao extends NamedParameterJdbcDaoSupport implements Da
     assert getNamedParameterJdbcTemplate() != null;
     getNamedParameterJdbcTemplate().update(UPDATE_SQL,
         mapOf(Country.Fields.name, entity.getName(),
-            Country.Fields.codeName, entity.getGroupName(),
+            CODE_NAME_FIELD, entity.getGroupName(),
             Country.Fields.id, String.valueOf(entity.getId())));
 
     return entity;
@@ -80,7 +81,7 @@ public final class CountryDao extends NamedParameterJdbcDaoSupport implements Da
     getNamedParameterJdbcTemplate().update(INSERT_SQL,
         new MapSqlParameterSource(
             mapOf(Country.Fields.name, entity.getName(),
-                Country.Fields.codeName, entity.getGroupName())),
+                CODE_NAME_FIELD, entity.getGroupName())),
         keyHolder);
 
     //noinspection unchecked,ConstantConditions
@@ -93,7 +94,7 @@ public final class CountryDao extends NamedParameterJdbcDaoSupport implements Da
     assert getNamedParameterJdbcTemplate() != null;
     getNamedParameterJdbcTemplate()
         .execute(DELETE_SQL,
-            mapOf(Country.Fields.id, integer));
+            Collections.singletonMap(Country.Fields.id, integer));
     return this;
   }
 }

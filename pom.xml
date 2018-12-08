@@ -55,19 +55,6 @@
         <scope>compile</scope>
       </dependency><!-- org.jetbrains:annotations:${annotations.version} -->
 
-      <!-- H2 -->
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>${h2.version}</version>
-        <scope>test</scope>
-      </dependency><!-- com.h2database:h2:${h2.version} -->
-      <dependency>
-        <groupId>com.zaxxer</groupId>
-        <artifactId>HikariCP</artifactId>
-        <version>${HikariCP.version}</version>
-      </dependency><!-- com.zaxxer:HikariCP:${HikariCP.version} -->
-
       <!-- TEST -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>

@@ -21,9 +21,7 @@ public interface Java9BackPort {
 
     @NotNull
     static <K, V> Map<K, V> mapOf(K k1, V v1) {
-        val result = new HashMap<K, V>(1);
-        result.put(k1, v1);
-        return Collections.unmodifiableMap(result);
+        return Collections.singletonMap(k1, v1);
     }
 
     @NotNull

@@ -31,7 +31,6 @@ public interface StreamUtils {
             public T next() {
                 if (resultSet.next())
                     throw new NoSuchElementException();
-                //noinspection unchecked
                 return rowMapper.apply(resultSet);
             }
         });
