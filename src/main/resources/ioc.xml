@@ -3,16 +3,13 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
-  <!--<bean id="name" class="java.lang.String" c:value="Russia"/>-->
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
   <bean id="russia" class="ru.vlapin.courses.spring.springfundamentals5.Country"
         c:id="1"
@@ -29,7 +26,7 @@
         c:name="Ivan Ivanov"
         c:age="15"
         c:contacts-ref="contacts"
-        c:country-ref="belarus"
+        c:country-ref="ukraine"
         c:height="1.78"
         c:isBroke="true"
         c:isProgrammer="true"/>
@@ -38,5 +35,10 @@
     <value>222-33-22</value>
     <value>dhf@dsfg.com</value>
   </util:list>
+
+  <jdbc:embedded-database id="dataSource" type="H2">
+    <jdbc:script location="ddl.sql"/>
+    <jdbc:script location="dml.sql"/>
+  </jdbc:embedded-database>
 
 </beans>

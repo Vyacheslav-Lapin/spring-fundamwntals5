@@ -1,173 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.1.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
 
-	<groupId>ru.vlapin.courses.spring</groupId>
-	<artifactId>spring-fundamwntals5</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>spring-fundamwntals5</name>
-	<description>Demo project for Spring Boot</description>
+  <groupId>ru.vlapin.courses.spring</groupId>
+  <artifactId>spring-fundamwntals5</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>spring-fundamwntals5</name>
+  <description>Demo project for Spring Boot</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
 
-		<junit-jupiter.version>5.3.2</junit-jupiter.version>
-		<assertj-core.version>3.11.1</assertj-core.version>
-		<java-hamcrest.version>2.0.0.0</java-hamcrest.version>
-		<mockito-all.version>2.0.2-beta</mockito-all.version>
-		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
-	</properties>
+    <!--libs-->
+    <h2.version>1.4.197</h2.version>
+    <HikariCP.version>3.2.0</HikariCP.version>
+    <vavr.version>0.9.2</vavr.version>
 
-	<dependencyManagement>
-		<dependencies>
+    <junit-jupiter.version>5.3.2</junit-jupiter.version>
+    <assertj-core.version>3.11.1</assertj-core.version>
+    <java-hamcrest.version>2.0.0.0</java-hamcrest.version>
+    <mockito-all.version>2.0.2-beta</mockito-all.version>
 
-			<!-- TEST -->
-			<dependency>
-			  <groupId>org.junit.jupiter</groupId>
-			  <artifactId>junit-jupiter-params</artifactId>
-			  <version>${junit-jupiter.version}</version>
-			  <scope>test</scope>
-			</dependency><!--JUnit 5 - params-->
-			<dependency>
-			  <groupId>org.assertj</groupId>
-			  <artifactId>assertj-core</artifactId>
-			  <version>${assertj-core.version}</version>
-			  <scope>test</scope>
-			</dependency><!--AssertJ-->
-			<dependency>
-			  <groupId>org.hamcrest</groupId>
-			  <artifactId>java-hamcrest</artifactId>
-			  <version>${java-hamcrest.version}</version>
-			  <scope>test</scope>
-			</dependency><!--Hamcrest-->
-			<dependency>
-			  <groupId>org.mockito</groupId>
-			  <artifactId>mockito-all</artifactId>
-			  <version>${mockito-all.version}</version>
-			  <scope>test</scope>
-			</dependency><!--Mockito-->
-			<dependency>
-			  <groupId>org.junit.vintage</groupId>
-			  <artifactId>junit-vintage-engine</artifactId>
-			  <version>${junit-jupiter.version}</version>
-			  <scope>test</scope>
-			</dependency><!--JUnit 5 - vintage (JUnit 4-3 tests support) -->
-			<dependency>
-			  <groupId>org.junit.jupiter</groupId>
-			  <artifactId>junit-jupiter-engine</artifactId>
-			  <version>${junit-jupiter.version}</version>
-			  <scope>test</scope>
-			</dependency><!--JUnit 5 - engine (for run tests)-->
-			
-			
-		</dependencies>
-	</dependencyManagement>
+    <!--plugins-->
+    <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+    <annotations.version>16.0.2</annotations.version>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
+  </properties>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+  <dependencyManagement>
+    <dependencies>
 
-		<!-- TEST -->
-		<dependency>
-		  <groupId>org.junit.jupiter</groupId>
-		  <artifactId>junit-jupiter-params</artifactId>
-		</dependency><!--JUnit 5 - params-->
-		<dependency>
-		  <groupId>org.assertj</groupId>
-		  <artifactId>assertj-core</artifactId>
-		</dependency><!--AssertJ-->
-		<dependency>
-		  <groupId>org.hamcrest</groupId>
-		  <artifactId>java-hamcrest</artifactId>
-		</dependency><!--Hamcrest-->
-		<dependency>
-		  <groupId>org.mockito</groupId>
-		  <artifactId>mockito-all</artifactId>
-		</dependency><!--Mockito-->
-		<dependency>
-		  <groupId>org.junit.vintage</groupId>
-		  <artifactId>junit-vintage-engine</artifactId>
-		</dependency><!--JUnit 5 - vintage (JUnit 4-3 tests support) -->
-		<dependency>
-		  <groupId>org.junit.jupiter</groupId>
-		  <artifactId>junit-jupiter-engine</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.jetbrains</groupId>
-			<artifactId>annotations</artifactId>
-			<version>16.0.2</version>
-			<scope>compile</scope>
-		</dependency><!--JUnit 5 - engine (for run tests)-->
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr</artifactId>
+        <version>${vavr.version}</version>
+      </dependency><!-- io.vavr:vavr:${vavr.version} -->
+      <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>${annotations.version}</version>
+        <scope>compile</scope>
+      </dependency><!-- org.jetbrains:annotations:${annotations.version} -->
 
+      <!-- H2 -->
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${h2.version}</version>
+        <scope>test</scope>
+      </dependency><!-- com.h2database:h2:${h2.version} -->
+      <dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>${HikariCP.version}</version>
+      </dependency><!-- com.zaxxer:HikariCP:${HikariCP.version} -->
 
-	</dependencies>
+      <!-- TEST -->
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.junit.jupiter:junit-jupiter-params:${junit-jupiter.version} -->
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${assertj-core.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.assertj:assertj-core:${assertj-core.version} -->
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>java-hamcrest</artifactId>
+        <version>${java-hamcrest.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.hamcrest:java-hamcrest:${java-hamcrest.version} -->
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>${mockito-all.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.mockito:mockito-all:${mockito-all.version} -->
+      <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.junit.vintage:junit-vintage-engine:${junit-jupiter.version} -->
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency><!-- org.junit.jupiter:junit-jupiter-engine:${junit-jupiter.version} -->
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- Minimum maven version -->
-				<plugin>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-enforcer-plugin</artifactId>
-				    <version>${maven-enforcer-plugin.version}</version>
-				    <executions>
-				        <execution>
-				            <id>enforce-maven</id>
-				            <goals>
-				                <goal>enforce</goal>
-				            </goals>
-				            <configuration>
-				                <rules>
-				                    <requireMavenVersion>
-				                        <version>3.6.0</version>
-				                    </requireMavenVersion>
-				                </rules>
-				            </configuration>
-				        </execution>
-				    </executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<!-- Minimum maven version -->
-			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-enforcer-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency><!-- org.springframework.boot:spring-boot-starter -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency><!-- org.springframework.boot:spring-boot-starter-aop -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency><!-- org.springframework.boot:spring-boot-starter-test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency><!-- org.springframework.boot:spring-boot-starter-jdbc -->
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency><!-- org.projectlombok:lombok -->
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+    </dependency><!-- org.jetbrains:annotations -->
+    <dependency>
+      <groupId>io.vavr</groupId>
+      <artifactId>vavr</artifactId>
+    </dependency><!-- io.vavr:vavr -->
+
+    <!-- H2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+    </dependency><!-- com.h2database:h2 -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+    </dependency><!-- com.zaxxer:HikariCP -->
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+    </dependency><!-- org.junit.jupiter:junit-jupiter-params -->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+    </dependency><!-- org.assertj:assertj-core -->
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>java-hamcrest</artifactId>
+    </dependency><!-- org.hamcrest:java-hamcrest -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+    </dependency><!-- org.mockito:mockito-all -->
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+    </dependency><!-- org.junit.vintage:junit-vintage-engine -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+    </dependency><!-- org.junit.jupiter:junit-jupiter-engine -->
+
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven-enforcer-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-maven</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireMavenVersion>
+                    <version>3.6.0</version>
+                  </requireMavenVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin><!-- org.apache.maven.plugins:maven-enforcer-plugin -->
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin><!-- org.springframework.boot:spring-boot-maven-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin><!-- org.apache.maven.plugins:maven-enforcer-plugin -->
+    </plugins>
+  </build>
 
 </project>
